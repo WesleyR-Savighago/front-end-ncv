@@ -1,40 +1,40 @@
 <div *ngIf="aplicacao && aplicacao.id" class="aplicacao-container">
   <!-- Card de Detalhes da Aplicação -->
   <mat-card appearance="outlined" class="aplicacao-card">
-    <div class="card-header">
-      <button mat-icon-button color="primary" [routerLink]="['/atualizar', aplicacao.id]">
-        <mat-icon>edit</mat-icon>
-      </button>
-    </div>
     <mat-card-title class="aplicacao-title">
-      {{ aplicacao.nomeAplicacao || 'Nome da aplicação não disponível' }}
+      <span>{{ aplicacao.nomeAplicacao || 'Nome da aplicação não disponível' }}</span>
+      <div class="card-header">
+        <button mat-icon-button color="primary" [routerLink]="['/atualizar', aplicacao.id]">
+          <mat-icon>edit</mat-icon>
+        </button>
+      </div>
     </mat-card-title>
     <mat-card-content>
       <div class="info-section">
-        <p>
-          <strong>Status:</strong>
-          <span [class]="getStatusClass(aplicacao.statusAplicacaoDescricao || '')">
-            {{ aplicacao.statusAplicacaoDescricao || 'Status não disponível' }}
-          </span>
-        </p>
-        <p>
+        <div>
           <strong>Data de Chegada:</strong> {{ aplicacao.dataChegada || 'Não informada' }}
-        </p>
-        <p>
+        </div>
+        <div>
           <strong>Responsável:</strong> {{ aplicacao.bsResponsavelNome || 'Não informado' }}
-        </p>
-        <p>
+        </div>
+        <div>
           <strong>Repositório:</strong>
           <a mat-button color="primary" [href]="aplicacao.repositorio || '#'" target="_blank">
             {{ aplicacao.repositorio ? 'Clique aqui' : 'Não disponível' }}
           </a>
-        </p>
-        <p>
+        </div>
+        <div>
           <strong>IC:</strong>
           <a mat-button color="primary" [href]="aplicacao.ic || '#'" target="_blank">
             {{ aplicacao.ic ? 'Clique aqui' : 'Não disponível' }}
           </a>
-        </p>
+        </div>
+        <div>
+          <strong>Status:</strong>
+          <span [class]="getStatusClass(aplicacao.statusAplicacaoDescricao || '')">
+            {{ aplicacao.statusAplicacaoDescricao || 'Status não disponível' }}
+          </span>
+        </div>
       </div>
     </mat-card-content>
   </mat-card>
